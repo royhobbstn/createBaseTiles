@@ -1,0 +1,25 @@
+{
+  "name": "create-base-tiles",
+  "version": "0.0.1",
+  "description": "create basemap tiles",
+  "main": "convertToGeoJSON.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/royhobbstn/createBaseTiles.git"
+  },
+  "keywords": [
+    "basemap"
+  ],
+  "author": "Daniel Trone",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/royhobbstn/createBaseTiles/issues"
+  },
+  "homepage": "https://github.com/royhobbstn/createBaseTiles#readme",
+  "dependencies": {
+    "shapefile": "^0.6.6"
+  }
+}
