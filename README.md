@@ -6,6 +6,6 @@ Create a simplistic basemap using Natural Earth data and tippecanoe.
 ```
 bash downloadGeo.sh
 node convertToGeoJSON.js
-tippecanoe something something something
+tippecanoe -o ./tiles/basemap.mbtiles -zg --drop-densest-as-needed ./geojson/*.geojson
 ```
 
