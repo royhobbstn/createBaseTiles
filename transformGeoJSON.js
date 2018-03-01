@@ -4,8 +4,8 @@
 
 exports.transformBoundaryLines = function(row) {
   //
-  row.properties = {};
-  row.tippecanoe = { "layer": "boundary_lines" };
+  row.tippecanoe = { "layer": "boundary_lines", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { scalerank: row.properties.scalerank };
 
   return row;
 };
@@ -13,8 +13,8 @@ exports.transformBoundaryLines = function(row) {
 
 exports.transformCountries = function(row) {
   //
-  row.properties = { name: row.properties.NAME };
-  row.tippecanoe = { layer: "countries" };
+  row.tippecanoe = { layer: "countries", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { name: row.properties.NAME, scalerank: row.properties.scalerank };
 
   return row;
 };
@@ -22,8 +22,8 @@ exports.transformCountries = function(row) {
 
 exports.transformLabelPoints = function(row) {
   //
-  row.properties = { name: row.properties.name };
-  row.tippecanoe = { layer: "label_points", maxzoom: 10, minzoom: 5 };
+  row.tippecanoe = { layer: "label_points", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { name: row.properties.name, scalerank: row.properties.scalerank };
 
   return row;
 };
@@ -31,8 +31,8 @@ exports.transformLabelPoints = function(row) {
 
 exports.transformStatesProvinces = function(row) {
   //
-  row.properties = { name: row.properties.name };
-  row.tippecanoe = { layer: "states_provinces", maxzoom: 10, minzoom: 5 };
+  row.tippecanoe = { layer: "states_provinces", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { name: row.properties.name, scalerank: row.properties.scalerank };
 
   return row;
 };
@@ -40,8 +40,8 @@ exports.transformStatesProvinces = function(row) {
 
 exports.transformProtectedLands = function(row) {
   //
+  row.tippecanoe = { layer: "protected_lands", maxzoom: 13, minzoom: 6 };
   row.properties = { name: row.properties.name };
-  row.tippecanoe = { layer: "protected_lands", maxzoom: 10, minzoom: 5 };
 
   return row;
 };
@@ -49,8 +49,8 @@ exports.transformProtectedLands = function(row) {
 
 exports.transformPopulatedPlaces = function(row) {
   //
-  row.properties = { name: row.properties.name };
-  row.tippecanoe = { layer: "populated_places", maxzoom: 13, minzoom: 8 };
+  row.tippecanoe = { layer: "populated_places", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { name: row.properties.name, scalerank: row.properties.scalerank };
 
   return row;
 };
@@ -58,16 +58,24 @@ exports.transformPopulatedPlaces = function(row) {
 
 exports.transformRailroads = function(row) {
   //
-  row.properties = {};
-  row.tippecanoe = { layer: "railroads", maxzoom: 13, minzoom: 8 };
+  row.tippecanoe = { layer: "railroads", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { scalerank: row.properties.scalerank };
 
   return row;
 };
 
 exports.transformRoads = function(row) {
   //
+  row.tippecanoe = { layer: "roads", maxzoom: 13, minzoom: row.properties.scalerank };
+  row.properties = { scalerank: row.properties.scalerank };
+
+  return row;
+};
+
+exports.transformUrbanAreas = function(row) {
+  //
+  row.tippecanoe = { layer: "urban_areas", maxzoom: 13, minzoom: 5 };
   row.properties = {};
-  row.tippecanoe = { layer: "roads", maxzoom: 13, minzoom: 8 };
 
   return row;
 };

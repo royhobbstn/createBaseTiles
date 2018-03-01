@@ -26,3 +26,5 @@ unzip ne_10m_roads_north_america.zip
 wget http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_railroads_north_america.zip
 unzip ne_10m_railroads_north_america.zip
 
+wget http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_urban_areas.zip
+unzip ne_10m_urban_areas.zip

@@ -9,7 +9,8 @@ const {
   transformProtectedLands,
   transformPopulatedPlaces,
   transformRailroads,
-  transformRoads
+  transformRoads,
+  transformUrbanAreas
 } = require('./transformGeoJSON.js');
 
 const boundary_lines = [];
@@ -20,6 +21,7 @@ const protected_lands = [];
 const populated_places = [];
 const railroads = [];
 const roads = [];
+const urban_areas = [];
 
 shapefile.open("./shapefiles/ne_10m_admin_0_boundary_lines_land.shp")
   .then(source => source.read()
@@ -198,6 +200,29 @@ shapefile.open("./shapefiles/ne_10m_admin_0_boundary_lines_land.shp")
           return reject(err);
         }
         console.log('done saving roads as geoJson');
+        resolve();
+      });
+    });
+  })
+
+  .then(() => {
+    return shapefile.open("./shapefiles/ne_10m_urban_areas.shp");
+  })
+  .then(source => source.read()
+    .then(function log(result) {
+      if (result.done) return;
+      urban_areas.push(transformUrbanAreas(result.value));
+      return source.read().then(log);
+    }))
+  .then(() => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./geojson/ne_10m_urban_areas.geojson', JSON.stringify(urban_areas), 'utf8', err => {
+        if (err) {
+          console.log('error with urban_areas');
+          console.log(err);
+          return reject(err);
+        }
+        console.log('done saving urban_areas as geoJson');
         resolve();
       });
     });
