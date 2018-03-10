@@ -60,3 +60,7 @@ typings/
 shapefiles/
 geojson/
 tiles/
+
+keyfile.js
+
+dist/
