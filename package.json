@@ -4,8 +4,7 @@
   "description": "create basemap tiles",
   "main": "convertToGeoJSON.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -21,12 +20,6 @@
   },
   "homepage": "https://github.com/royhobbstn/createBaseTiles#readme",
   "dependencies": {
-    "mapbox-gl": "^0.44.1",
-    "shapefile": "^0.6.6",
-    "webpack": "^4.1.0"
-  },
-  "devDependencies": {
-    "serve": "^6.5.1",
-    "webpack-cli": "^2.0.10"
+    "shapefile": "^0.6.6"
   }
 }

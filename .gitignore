@@ -59,7 +59,7 @@ typings/
 
 shapefiles/
 geojson/
-tiles/
+tiles/basemap
 
 keyfile.js
 
